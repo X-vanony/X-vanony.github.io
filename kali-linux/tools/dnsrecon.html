@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="vanony">
+	<title>dnsrecon</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body{
+		position: relative;
+		font:15px 华文中宋;
+		color: white;
+	}
+	section{
+		position: absolute;
+		width: 60%;
+		left: 20%;
+		background-color: rgba(0,0,0,.8);
+	}
+	article{
+		font-size: 20px;
+		text-align: center;
+	}
+	.gs{
+		margin-left: 10px;
+	}
+	.gs p{
+		margin-left: 20px;
+	}
+	.yy{
+		margin-top: 20px;
+		margin-left: 10px;
+	}
+	.anli{
+		margin-left: 10px;
+	}
+	img{
+		margin-left: 100px;
+	}
+	</style>
+</head>
+<body>
+	<section>
+		<article>kali 之 dnsrecon</article>
+		<div class="gs">
+			<h2>工具说明</h2>
+			<p>检查所有的NS记录区域传送</p>
+			<p>列举一般DNS记录给定域（MX，SOA，NS，A，AAAA，SPF和TXT）</p>
+			<p>执行常见的SRV记录枚举。顶级域名（TLD）扩展</p>
+			<p>检查通配符解析</p>
+			<p>蛮力子域名和主机A和AAAA记录中的一个域和单词表</p>
+			<p>对于给定的IP范围或CIDR执行PTR记录查询</p>
+			<p>检查缓存记录A，AAAA和CNAME记录在一个文本文件中提供的主机记录列表的DNS服务器来检查</p>
+			<p>枚举在使用谷歌的本地网络枚举主机和子共同的mDNS记录</p>
+		</div>
+		
+		<div class="yy">
+			<table border="1">
+				<tr>
+					<th>-h,--help</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>-d DOMAIN,--domain DOMAIN</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>-n NS_SERVER,--name_server NS_SERVER</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>-r RANGE,--range RANGE</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>-D DICTIONARY,--dictionary DICTIONARY</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>-f</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>-t TYPE,--type TYPE</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>-a</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>-s</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>-g</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>-b</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>-k</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>-w</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>-z</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>--threads THREADS</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>--lifetime LIFETIME</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>--tcp</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>--db DB</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>-x XML,--xml XML</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>-c CSV,--csv CSV</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>-j JSON,--json JSON</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>--iw</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>--disable_check_recursion</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>--disable_check_bindversion</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>-v</th>
+					<th></th>
+				</tr>
+			</table>
+			<sub style="font-size: 5px;"></sub>
+		</div>
+		<div class="anli">
+			<h2>案例</h2>
+			<sub style="font: 1px;">未实验验证</sub>
+			<div>
+				<h3>实战一，直接使用dnsenum查询：</h3>
+				<img src="img/dnsenum/1.png" alt="实战一">
+				<h3>实战二，使用第一次查询出来的DNS服务器、查询C段并使用多线程(思路，在渗透目标时，先发现目标的私有DNS，然后指定私有DNS在进行查询，往往可以查到目标的私有信息)</h3>
+				<img src="img/dnsenum/2.png" alt="实战二">
+				<h3>实战三，使用自己的子域名字典对目标进行域名及子域名的爆破（思路：不管第二步是否成功，都需要对目标进行一次爆破，这是为了收集更多的信息，如果第二步成功了，在这里爆破的时候可以根据第二步中查询到的额外的信息对目标的域名命名规则进行预测，然后进行爆破</h3>
+				<img src="img/dnsenum/3.png" alt="实战三"><br>
+				<sub style="font-size: 3px;margin-top: 10px;margin-bottom: 15px">工具说明来自：https://www.92aq.com/kalitools/dnsenum_zh.html，本文意译及案例均来自51CTO博客作者Owefsad的原创作品</sub><br>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

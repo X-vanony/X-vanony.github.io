@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>X Learning_Record</title>
+  
+  <subtitle>春风已过，昨日不复</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-02-29T02:48:44.992Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Vanony X</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python爬虫问题（一）</title>
+    <link href="http://yoursite.com/2020/02/28/python%E7%88%AC%E8%99%AB%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://yoursite.com/2020/02/28/python%E7%88%AC%E8%99%AB%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/</id>
+    <published>2020-02-28T13:16:53.000Z</published>
+    <updated>2020-02-29T02:48:44.992Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/X-vanony" target="_blank" rel="noopener"><img width="149" height="149" style="position: absolute; top: 0;right: 0; border: 0;" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_red_aa0000.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a></p><ul><li><h4 id="快看漫画爬取报错"><a href="#快看漫画爬取报错" class="headerlink" title="快看漫画爬取报错"></a>快看漫画爬取报错</h4></li></ul><p>由于最近偶然接触到了爬虫，碰巧也一直在追快看漫画的《超能立方》。想着就练练手，试着爬取去爬取一下这本漫画，爬取之前就已经看过阿里云大学的爬虫课。有个初步了解，再看了小半本《python网络爬虫从入门到实践2》。暗想：这挺简单的啊，好像没有那么难啊。于是就撸起袖子，开始在电脑前日夜更替不停的敲了，中间的心酸泪只有自己懂。（自己给自己一耳光，这也叫简单。）敲了几天，遇到问题百度，谷歌，一个bug就要捣鼓几个小时。小白自学好可怜，反复尝试，更改。总算有个样子，可以勉强单线程的爬取该网站的所有漫画。（<a href="https://github.com/X-vanony" target="_blank" rel="noopener">代码</a>将上传至github，只供学习，勿做它用，违者后果自负）这里讲解一下部分中途遇到的问题及解决方案。  </p><a id="more"></a><hr><h6 id="类型报错"><a href="#类型报错" class="headerlink" title="类型报错"></a>类型报错</h6><p>（注：报错时查找出报错所在位置。坑：一直以为是正则语法错误，不管怎么改都报错，误入歧途。真正报错位置在于后面的“img_url”文本的类型错误，根据提示更改成正确的格式即可。） </p><p><img src="/2020/02/28/python%E7%88%AC%E8%99%AB%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/err1.png" alt="err1"></p><h6 id="解："><a href="#解：" class="headerlink" title="解："></a>解：</h6><p>​        将“img_url”格式转换成字符串格式即可</p><p><img src="/2020/02/28/python%E7%88%AC%E8%99%AB%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/err2.png" alt="err2"></p><hr><h6 id="参数丢失报错"><a href="#参数丢失报错" class="headerlink" title="参数丢失报错"></a>参数丢失报错</h6><p><img src="/2020/02/28/python%E7%88%AC%E8%99%AB%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/err3.png" alt="err3"></p><hr><h6 id="mysql本地连接报错"><a href="#mysql本地连接报错" class="headerlink" title="mysql本地连接报错"></a>mysql本地连接报错</h6><p>（注：主要错误在于，语法写错：‘password’，其实是密码输入位置，这里多出导致一直无法连接）</p><p><img src="/2020/02/28/python%E7%88%AC%E8%99%AB%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/err4.png" alt="err4"></p><p><img src="/2020/02/28/python%E7%88%AC%E8%99%AB%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/err5.png" alt="err5"></p><h6 id="解：-1"><a href="#解：-1" class="headerlink" title="解："></a>解：</h6><p>​        使用root用户进入mysql，更改权限设置</p><p>ALTER USER ‘root’@’localhost’ IDENTIFIED WITH mysql_native_password BY ‘你的密码’;</p><p><img src="/2020/02/28/python%E7%88%AC%E8%99%AB%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/err6.png" alt="err6"></p><hr><h6 id="以上只是部分报错记录，还有一部分当时太投入了压根忘了记。不过如果有跟我一样的python爬虫小白上路，遇到其它报错可以留言，说不定我遇到过，碰巧解决了呢！此博客将会不定期的发布爬虫相关文档，以及github上会分享出代码，欢迎评论留言一起学习探讨python爬虫。"><a href="#以上只是部分报错记录，还有一部分当时太投入了压根忘了记。不过如果有跟我一样的python爬虫小白上路，遇到其它报错可以留言，说不定我遇到过，碰巧解决了呢！此博客将会不定期的发布爬虫相关文档，以及github上会分享出代码，欢迎评论留言一起学习探讨python爬虫。" class="headerlink" title="以上只是部分报错记录，还有一部分当时太投入了压根忘了记。不过如果有跟我一样的python爬虫小白上路，遇到其它报错可以留言，说不定我遇到过，碰巧解决了呢！此博客将会不定期的发布爬虫相关文档，以及github上会分享出代码，欢迎评论留言一起学习探讨python爬虫。"></a>以上只是部分报错记录，还有一部分当时太投入了压根忘了记。不过如果有跟我一样的python爬虫小白上路，遇到其它报错可以留言，说不定我遇到过，碰巧解决了呢！此博客将会不定期的发布爬虫相关文档，以及github上会分享出<a href="https://github.com/X-vanony/" target="_blank" rel="noopener">代码</a>，欢迎评论留言一起学习探讨python爬虫。</h6>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://github.com/X-vanony&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;img width=&quot;149&quot; height=&quot;149&quot; style=&quot;position: absolute; top: 0;right: 0; border: 0;&quot; src=&quot;https://github.blog/wp-content/uploads/2008/12/forkme_right_red_aa0000.png?resize=149%2C149&quot; class=&quot;attachment-full size-full&quot; alt=&quot;Fork me on GitHub&quot; data-recalc-dims=&quot;1&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;h4 id=&quot;快看漫画爬取报错&quot;&gt;&lt;a href=&quot;#快看漫画爬取报错&quot; class=&quot;headerlink&quot; title=&quot;快看漫画爬取报错&quot;&gt;&lt;/a&gt;快看漫画爬取报错&lt;/h4&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由于最近偶然接触到了爬虫，碰巧也一直在追快看漫画的《超能立方》。想着就练练手，试着爬取去爬取一下这本漫画，爬取之前就已经看过阿里云大学的爬虫课。有个初步了解，再看了小半本《python网络爬虫从入门到实践2》。暗想：这挺简单的啊，好像没有那么难啊。于是就撸起袖子，开始在电脑前日夜更替不停的敲了，中间的心酸泪只有自己懂。（自己给自己一耳光，这也叫简单。）敲了几天，遇到问题百度，谷歌，一个bug就要捣鼓几个小时。小白自学好可怜，反复尝试，更改。总算有个样子，可以勉强单线程的爬取该网站的所有漫画。（&lt;a href=&quot;https://github.com/X-vanony&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;代码&lt;/a&gt;将上传至github，只供学习，勿做它用，违者后果自负）这里讲解一下部分中途遇到的问题及解决方案。  &lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="报错" scheme="http://yoursite.com/tags/%E6%8A%A5%E9%94%99/"/>
+    
+  </entry>
+  
+</feed>

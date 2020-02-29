@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="vanony">
+	<title>wpscan</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body{
+		position: relative;
+		font:15px 华文中宋;
+		color: white;
+	}
+	section{
+		position: absolute;
+		width: 60%;
+		left: 20%;
+		background-color: rgba(0,0,0,.8);
+	}
+	article{
+		font-size: 20px;
+		text-align: center;
+	}
+	.gs{
+		margin-left: 10px;
+	}
+	.gs p{
+		margin-left: 20px;
+	}
+	.yy{
+		margin-top: 20px;
+		margin-left: 10px;
+	}
+	.anli{
+		margin-left: 10px;
+	}
+	img{
+		margin-left: 100px;
+	}
+	</style>
+</head>
+<body>
+	<section>
+		<article>kali 之 wpscan</article>
+		<div class="gs">
+			<h2>工具说明</h2>
+			<p>WPScan是一个黑盒子的WordPress漏洞扫描器可用于扫描远程WordPress的安装找到安全问题。</p>
+		</div>
+		
+		<div class="yy">
+			<table border="1">
+				<tr>
+					<th>--url URL</th>
+					<th>配置扫描URL</th>
+				</tr>
+				<tr>
+					<th>-h,--help</th>
+					<th>帮助信息查看</th>
+				</tr>
+				<tr>
+					<th>--hh</th>
+					<th>更多帮助信息</th>
+				</tr>
+				<tr>
+					<th>--version</th>
+					<th>输出当前版本</th>
+				</tr>
+				<tr>
+					<th>-v,verbose</th>
+					<th>输出信息</th>
+				</tr>
+				<tr>
+					<th>--[no-]banner</th>
+					<th>指定是否显示标语</th>
+				</tr>
+				<tr>
+					<th>-o,--output FILE</th>
+					<th>输出到文件</th>
+				</tr>
+				<tr>
+					<th>-f,format FORMAT</th>
+					<th>指定结果输出格式，格式选择： cli-no-color, cli, json, cli-no-colour</th>
+				</tr>
+				<tr>
+					<th>--detection-mode MODE</th>
+					<th>默认混合模式，模式选择:混合、被动、主动</th>
+				</tr>
+				<tr>
+					<th>--user-agent,--ua VALUE
+--random-user-agent,--rua
+--http-auth login:password
+</th>
+					<th>为每次扫描使用一个随机的用户代理</th>
+				</tr>
+				<tr>
+					<th>-t,max-threads VALUE</th>
+					<th>最大线程数，默认数值：5</th>
+				</tr>
+				<tr>
+					<th>--throttle MilliSeconds</th>
+					<th>在执行另一个web请求之前等待毫秒。如果使用，最大线程将设置为1。</th>
+				</tr>
+				<tr>
+					<th>--request-timeout SECONDS</th>
+					<th>请求超时，默认：60s</th>
+				</tr>
+				<tr>
+					<th>--connect-timeout SECONDS</th>
+					<th>连接超时，默认：30s</th>
+				</tr>
+				<tr>
+					<th>--disable-tls-checks</th>
+					<th>禁用SSL/TLS证书验证，并将其降级到TLS1.0+(后者需要使用cURL 7.66)</th>
+				</tr>
+				<tr>
+					<th>--proxy protocol://ip:port</th>
+					<th>设置一个代理，可以使用HTTP、SOCKS4、SOCKS4A、SOCKS5，如果未设置默认是HTTP协议</th>
+				</tr>
+				<tr>
+					<th>--proxy-auth login:password</th>
+					<th>设置代理登陆信息</th>
+				</tr>
+				<tr>
+					<th>--cookie-string COOKIE</th>
+					<th>在请求中使用的Cookie字符串，格式:cookie1=value1[;cookie2 = value2]</th>
+				</tr>
+				<tr>
+					<th>--cookie-jar FILE-PATH</th>
+					<th>读取和写入cookie的文件              默认: /tmp/wpscan/cookie_jar.txt</th>
+				</tr>
+				<tr>
+					<th>--force</th>
+					<th>强制让wpscan不要验证目标是否是wordpress</th>
+				</tr>
+				<tr>
+					<th>--[no-]update</th>
+					<th>更新数据库</th>
+				</tr>
+				<tr>
+					<th>--api-token TOKEN</th>
+					<th>WPVulnDB API令牌来显示漏洞数据</th>
+				</tr>
+				<tr>
+					<th>--wp-content-dir DIR</th>
+					<th>插件目录如果自定义或未检测到，如："wp-content/plugi ns"</th>
+				</tr>
+				<tr>
+					<th>-e,--enumerate [OPTS]</th>
+					<th>枚举信息，选项:</th>
+				</tr>
+				<tr>
+					<th>vp</th>
+					<th>只枚举有漏洞的插件</th>
+				</tr>
+				<tr>
+					<th>ap</th>
+					<th>枚举所有插件，时间较长</th>
+				</tr>
+				<tr>
+					<th>P</th>
+					<th>枚举插件</th>
+				</tr>
+				<tr>
+					<th>vt</th>
+					<th>只枚举存在漏洞的主题</th>
+				</tr>
+				<tr>
+					<th>at</th>
+					<th>枚举所有主题，时间较长</th>
+				</tr>
+				<tr>
+					<th>t</th>
+					<th>枚举主题信息</th>
+				</tr>
+				<tr>
+					<th>tt</th>
+					<th>列举缩略图相关的文件</th>
+				</tr>
+				<tr>
+					<th>cb</th>
+					<th>配置备份</th>
+				</tr>
+				<tr>
+					<th>dbe</th>
+					<th>数据导出</th>
+				</tr>
+				<tr>
+					<th>u</th>
+					<th>用户id。例如: u1-5
+范围使用分隔符:”-“
+没有提供数值范围为：1-10
+</th>
+				</tr>
+				<tr>
+					<th>m</th>
+					<th>媒体IDs范围。例如： m1-15                                                        注意:要检测到的永久链接设置必须设置为“Plain” 范围使用分隔符:”-“                                   没有提供数值范围为: 1-100</th>
+				</tr>
+				<tr>
+					<th>--exclude-content-based REGEXP_OR_STRING</th>
+					<th>当使用枚举选项时，可以使用该参数做一些过滤，基于正则或者字符串，可以不写正则分隔符，但要用单引号或双引号包裹</th>
+				</tr>
+				<tr>
+					<th>--plugins-detection MODE</th>
+					<th>使用提供的模式枚举插件，而不是全局模式(—检测模式)。默认值:被动</th>
+				</tr>
+				<tr>
+					<th>--plugins-version-detection MODE</th>
+					<th>使用提供的模式来检查插件版本，可指定模式为：检测模式或插件检测模式。默认值:混合</th>
+				</tr>
+				<tr>
+					<th>-P,--passwords FILE-PATH</th>
+					<th>指定需要使用的密码文件路径</th>
+				</tr>
+				<tr>
+					<th>-U,--usernames LIST</th>
+					<th>指定用户名列表</th>
+				</tr>
+				<tr>
+					<th>--multicall-max-passwords MAX_PWD</th>
+					<th>使用XMLRPC多播请求发送的最大密码数，默认：500</th>
+				</tr>
+				<tr>
+					<th>--password-attack ATTACK</th>
+					<th>强制使用所提供的攻击，而不是自动确定一个。可用选项:wp-login、xmlrpc、xmlrpc-multicall</th>
+				</tr>
+				<tr>
+					<th>--stealthy</th>
+					<th>别名配合，随机用户代理，检测模式被动式，插件版本检测被动式</th>
+				</tr>
+			</table>
+			<sub style="font-size: 5px;"></sub>
+		</div>
+		<div class="anli">
+			<h2>案例</h2>
+			<sub style="font: 1px;">已验证</sub>
+			<div>
+				<h3>扫描出wordpress用户查询：“wpscan --url IP地址 --enumerate u vp”，“user(s) identified”底下显示的就是扫描出的用户名</h3>
+				<img src="img/wpscan/1.png" alt="用户名扫描">
+				<h3>通过字典枚举破解密码：“a)	wpscan --url IP地址 --enumerate u -P /usr/share/set/src/fasttrack/wordlist.txt”c)	这里使用的是默认的kali Linux自带的字典，也可以自行制作字典进行扫描或者网上搜索，及使用<a href="crunch.html"></a>“crunch”</h3>
+				<img src="img/wpscan/2.png" alt="密码获取">
+			</div>
+		</div>
+	</section>
+</body>
+</html>

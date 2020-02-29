@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="vanony">
+	<title>dnsenum</title>
+	<link rel="stylesheet" href="../css/kali-tools.css">
+</head>
+<body>
+	<section>
+		<article>kali 之 dnsenum</article>
+		<div class="gs">
+			<h2>工具说明</h2>
+			<p>多线程perl脚本来枚举域的DNS信息，并发现不连续的IP模块。</p>
+			<p>操作：</p>
+			<p>获取主机的addresse（A记录）。</p>
+			<p>获取namservers（螺纹）。</p>
+			<p>获取MX记录（螺纹）。</p>
+			<p>执行AXFR查询的域名服务器，并获得BIND版本（螺纹）。</p>
+			<p>获得通过谷歌刮（谷歌查询=“的allinurl：-www网站域名”）额外的名称和子域。</p>
+			<p>从文件中强力子域，还可以在子域有NS记录（所有线程）执行递归。</p>
+			<p>计算C级域网络范围，并对其执行的whois查询（线程）。</p>
+			<p>执行对netranges反向查找（C类或/和WHOIS netranges）（螺纹）。</p>
+			<p>写domain_ips.txt文件中的IP块。多线程perl脚本来枚举域的DNS信息，并发现不连续的IP模块。</p>
+			<p>操作：</p>
+			<p>获取主机的addresse（A记录）。</p>
+			<p>获取namservers（螺纹）。</p>
+			<p>获取MX记录（螺纹）。</p>
+			<p>执行AXFR查询的域名服务器，并获得BIND版本（螺纹）。</p>
+			<p>获得通过谷歌刮（谷歌查询=“的allinurl：-www网站域名”）额外的名称和子域。</p>
+			<p>从文件中强力子域，还可以在子域有NS记录（所有线程）执行递归。</p>
+			<p>计算C级域网络范围，并对其执行的whois查询（线程）。</p>
+			<p>执行对netranges反向查找（C类或/和WHOIS netranges）（螺纹）。</p>
+			<p>写domain_ips.txt文件中的IP块。</p>
+		</div>
+		
+		<div class="yy">
+			<table border="1">
+				<tr>
+					<th>--dnsserver</th>
+					<th>使用指定的DNS服务器进行A、NS、MX记录查询</th>
+				</tr>
+				<tr>
+					<th>--enum</th>
+					<th> 快捷选项，类似于：--threads 5 -s 15 -w.</th>
+				</tr>
+				<tr>
+					<th>-h,--help</th>
+					<th> 显示帮助信息</th>
+				</tr>
+				<tr>
+					<th>--noreverse</th>
+					<th>不进行反向查询</th>
+				</tr>
+				<tr>
+					<th>--nocolor</th>
+					<th>输出结果不显示颜色</th>
+				</tr>
+				<tr>
+					<th>--private</th>
+					<th>将私有IP展示并保存到domain_ips.txt文件中</th>
+				</tr>
+				<tr>
+					<th>--subfile</th>
+					<th>将有效的子域名写入到指定的文件中</th>
+				</tr>
+				<tr>
+					<th>-t,--timeout <value></th>
+					<th> 设定TCP、UDP的连接超时值(默认10秒，此选项在网络状况不好或者超好的情况下可以使用)</th>
+				</tr>
+				<tr>
+					<th>--threads</th>
+					<th>指定执行不同查询使用的线程数</th>
+				</tr>
+				<tr>
+					<th>-v,--verbose</th>
+					<th>输出详细结果(输出所有的)</th>
+				</tr>
+				<tr>
+					<th>-p,--pages</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>-s,--scrap <value></th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>-f,--file <file></th>
+					<th>指定子域名字典文件进行爆破</th>
+				</tr>
+				<tr>
+					<th>-u,--update <a|g|r|z></th>
+					<th>用有效的子域名更新-f指定的子域名文件
+						<tr>
+							<th>-a(all)</th>
+							<th>使用所有的结果(有效的、google抓取的、反向查询的、空间传送的)更子域名字典文件</th>
+						</tr>
+						<tr>
+							<th>-g</th>
+							<th>使用Google抓取的结果更新指定的文件</th>
+						</tr>
+						<tr>
+							<th>-r</th>
+							<th>使用反向查询的结果更新指定的文件</th>
+						</tr>
+						<tr>
+							<th>-z</th>
+							<th>使用空间传送的结果更新指定的文件</th>
+						</tr>
+					</th>
+				</tr>
+				<tr>
+					<th>-r,--recursion</th>
+					<th>对所有爆破到的有NS记录的子域进行递归查询</th>
+				</tr>
+				<tr>
+					<th>-d,--delay</th>
+					<th>设置两个whois查询之间的间隔，默认为3秒(此选项的目的在于调整发包速率，保证工具运行在最稳定的状态)</th>
+				</tr>
+				<tr>
+					<th>-w,--whois</th>
+					<th>在C段上执行whois查询 **警告**: 此选项生成大量的数据并需要大量的事件来执行反向查询</th>
+				</tr>
+				<tr>
+					<th>-e,--exclude <regexp></th>
+					<th>从反向查找的结果中排除正则中指定的PTR记录，此选项在针对无效主机名时有用</th>
+				</tr>
+				<tr>
+					<th>-o --output <file></th>
+					<th> 输出为XML格式的文件，可以被导入到MagicTree工具中</th>
+				</tr>
+			</table>
+			<sub style="font-size: 5px;"></sub>
+		</div>
+		<div class="anli">
+			<h2>案例</h2>
+			<sub style="font: 1px;">未实验验证</sub>
+			<div>
+				<h3>实战一，直接使用dnsenum查询：</h3>
+				<img src="img/dnsenum/1.png" alt="实战一">
+				<h3>实战二，使用第一次查询出来的DNS服务器、查询C段并使用多线程(思路，在渗透目标时，先发现目标的私有DNS，然后指定私有DNS在进行查询，往往可以查到目标的私有信息)</h3>
+				<img src="img/dnsenum/2.png" alt="实战二">
+				<h3>实战三，使用自己的子域名字典对目标进行域名及子域名的爆破（思路：不管第二步是否成功，都需要对目标进行一次爆破，这是为了收集更多的信息，如果第二步成功了，在这里爆破的时候可以根据第二步中查询到的额外的信息对目标的域名命名规则进行预测，然后进行爆破</h3>
+				<img src="img/dnsenum/3.png" alt="实战三"><br>
+				<sub style="font-size: 3px;margin-top: 10px;margin-bottom: 15px">工具说明来自：https://www.92aq.com/kalitools/dnsenum_zh.html，本文意译及案例均来自51CTO博客作者Owefsad的原创作品</sub><br>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

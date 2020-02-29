@@ -1,0 +1,703 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="vanony">
+	<meta name="keywords" content="kali,kali tool,information gathering,dns analysis,dnsenum,dnsrecon,fierce,ids/ips identification,ibd,wafw00f,live host identification,arping,fping,hping3,masscan,thcping6,network & port scanners,masscan,nmap,osint analysis,maltego,theharvester,route analysis,netdiscover,netmask,smb analysis,enum4linux,nbtscan,smbmap,smtp analysis,swaks,snmp analysis,onesixtyone,snmp-check,ssl analysis,ssldump,sslh,sslscan,sslyze,Dmitry,Ike-scan,Maltego,Netdiscover,Nmap,Recon-ng,sparta,vulnerability analysis,fuzzing tools,spike-generic_chunked,spike-generic_listen_tcp,spike-generic_send_tcp,spike-generic_send_udp,voip tools,voiphopper,nikto,nmap,sparta,unix-privesc-check,web application analysis,cms&framework identification,clusterd,wpscan,web application proxies,burpsuite,web crawlers&Directory bruteforce,cutycapt,dirb,dirbuster,wfuzz,web vulnerability scanners,cadaver,clusterd,davtest,nikto,skipfish,whatweb,wpscan,burpsuite,commix,skipfish,sqlmap,wpscan,database assessment,sqlite database browser,sqlmap,password attacks,offline attacks,chntpw,hashcat,hashid,hash-identifier,ophcrack-cli,samdump2,online attacks,hydra,hydra-gtk,onesixtyone,patator,thc-pptp-bruter,passing the hash tools,mimikatz,pth-curl,pth-net,pth-openchangeclient,pth-rpcclient,pth-smbclient,pth-smbget,pth-sqsh,pth-winexe,pth-wmic,pth-wmis,pth-xfreerdp,smbmap,password profiling & wordlists,cewl,crunch,rsmangler,wordlists,cewl,crunch,hashcat,john,ncrack,ophcrack,wordlists,wireless attacks,802.11 wireless tools,Bully,Fern wifi cracker,Bluetooth tools,spooftooph,Aircrack-ng,Fern wifi cracker,Kismet,Pixiewps,Reaver,wifite,reverse engineering,clang,clang++,nasm shell,radare2,exploitation tools,Metasploit framework,Msf payload creator,Searchsploit,Social engineering toolkit,sqlmap,sniffing & spoofing,network sniffers,dnschef,netsniff-ng,spoofing and mitm,dnschef,rebind,sslsplit,tcpreplay,Ettercap-graphical,Macchanger,Mitmproxy,Netsniff-ng,Responder,wireshark,post exploitation,os backdoors,dbd,powersploit,sbd,tunneling & exfiltration,dbd,dns2tcpc,dns2tcpd,exe2hex,iodine,miredo,proxychains,proxytunnel,ptunnel,pwnat,sslh,stunnel4,udptunnel,web backdoors,laudanum,weevely,exe2hex,mimikatz,powersploit,proxychains,weevely,forensics,forensic carving tools,magicrescue,scalpel,scrounge-ntfs,forensic imaging tools,guymager,pdf forensics tools,pdfid,pdf-parser,peepdf,sleuth kit suite,autopsy,blkcalc,blkcat,blkls,blkstat,ffind,fls,fsstat,hfind,icat-sleuthkit,ifind,ils-sleuthkit,img_cat,img_stat,istat,jcat,jls,mactime-sleuthkit,mmcat,mmls,mmstat,sigfind,sorter,srch_strings,tsk_comparedir,tsk_gettimes,tsk_loaddb,tsk_recover,autopsy,binwalk,bulk_extractor,hashdeep,reporting tools,cutycapt,faraday ide,maltego,pipal,recordmydesktop,social engineering tools,maltego,msf payload creator,social engineering toolkit">
+	<title>Kali Learning Record</title>
+	<link rel="title icon" href="img/title.ico"/>
+	<style type="text/css">
+		.start-menu>ul li:hover,.start-video>ul li:hover,.start-book>ul li:hover{
+			background-image: url(img/option.png);
+			background-repeat: no-repeat;
+		}
+		/*通用设置*/
+		*{
+			margin: 0;
+			padding: 0;
+			font: 15px 华文中宋;
+			color: white;
+		}
+		a{
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+		ul{
+			list-style-type: none;
+		}
+		img{
+			width: 30px;
+			height: 30px;
+			opacity: 0.8;
+		}
+
+		/*盒子*/
+		.wrap{
+			width: 100%;
+			height: 1080px;
+			position: relative;
+		}
+
+		/*跑马通知*/
+		.message {
+			font: 15px 华文中宋;
+		}	
+		#scroll_div {
+			position: absolute;
+			height: 26px;
+			line-height: 26px;
+			overflow: hidden;
+			white-space: nowrap;
+			width: 70%;
+			left: 15%;
+			right: 15%;
+			top: 7px;
+		}
+		#scroll_div_2{
+			position: absolute;
+			height: 26px;
+			line-height: 26px;
+			overflow: hidden;
+			white-space: nowrap;
+			width: 20%;
+			left: 40%;
+			right: 48%;
+			top: 35px;
+		}
+		#scroll_begin,#scroll_end {
+			display: inline;
+		}
+		#scroll_begin_2,#scroll_end_2 {
+			display: inline;
+		}
+
+		/*时间模块*/
+		#showtime{
+			position: absolute;
+			font: bold 华文中宋;
+			border-radius: 10px;
+			color: white;
+			right: 3%;
+			top: 10px;
+			opacity: 0.8;
+			}
+
+		/*头部黑框*/
+		 .hk{
+			width: 100%;
+			height: 40px;
+			background-color: rgba(0,0,0,0.8);
+		}
+
+		/*start-menu菜单图标*/
+		.start-menu img{
+			position: absolute;
+			width:  35px;
+			height: 30px;
+			top:5px;
+			left: 2px;
+		}
+		.start-menu img:hover,.start-book img:hover,.other .mp img:hover,.shutdown img:hover,.other .sys img:hover{
+			width: 40px;
+			height: 35px;
+			opacity: 1;
+		}
+
+		/*start-menu下拉菜单第一层*/
+		.start-menu>ul,.start-menu>ul>li>ul,.start-menu>ul>li>ul>li>ul{
+			position: absolute;
+			width: 200px;
+			height: auto;
+			-webkit-display:none;
+			display:none;
+		}
+		.start-menu:hover>ul,.start-menu>ul>li:hover>ul,.start-menu>ul>li>ul>li:hover>ul{
+			-webkit-display:block;
+			display:block;
+			
+		}
+		.atart-menu>ul>li,.atart-menu>ul>li>ul>li,.atart-menu>ul>li>ul>li>ul>li{
+			position: absolute;
+			width: 185px;
+			height: 20px;
+		}
+		.start-menu>ul>li:hover,.start-menu>ul>li>ul>li:hover,.start-menu>ul>li>ul>li>ul>li:hover{
+			font: 17px 华文中宋;
+			padding-left: 20px;
+		}
+
+		/*start-menu下拉菜单第二层,start-menu下拉菜单第三层*/
+		.start-menu>ul>li>ul,.start-menu>ul>li>ul>li>ul{
+			margin-left: 180px;
+			margin-top: -35px;
+		}
+
+		/*书籍*/
+		.start-book img{
+			position: absolute;
+			left: 50px;
+			top:5px;
+		}
+		/*书籍下拉单*/
+		.start-book ul{
+			position: absolute;
+			left: 50px;
+			width: 350px;
+			-webkit-display:none;
+			display:none;
+		}
+		.start-book:hover ul{
+			-webkit-display:block;
+			display:block;
+		}
+		.start-book>ul>li:hover{
+			font: 17px 华文中宋;
+			padding-left: 20px;
+		}
+
+		/*关闭打开窗口图标*/
+		.shutdown img{
+			position: absolute;
+			right: 5px;
+			top:5px;
+		}
+
+		/*其它选项图标*/
+		.other img{
+			position: absolute;
+		}
+
+		/*其它下拉单*/
+		/*公众号二维码*/
+		.other .sys img{
+			margin-top:-35px;
+			margin-left:100px;
+		}
+		.other>.sys:hover .btn-qr img{
+			display:block;
+		}
+		.other .btn-qr img{
+			width: 110px;
+			height: 90px;
+			margin-top: 10px;
+			margin-left:70px;
+			display:none;
+		}
+		/*名片*/
+		.other .mp img{
+			margin-top: -35px;
+			margin-left:150px;
+		}
+		/*主内容框*/
+		section iframe{
+			position: absolute;
+			top: 60px;
+			width: 100%;
+			height: 990px;
+		}
+
+		/*尾部*/
+		footer{
+			position: absolute;
+			bottom: 5px;
+			left:37%;
+}
+	</style>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?cf451eea5ade0f98f0d5c44287ed9f81";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+</head>
+
+<body>
+	<div class="wrap" style="background-image: url(img/kali-linux.png);background-repeat: no-repeat;">
+		<div id="scroll_div">
+			<div id="scroll_begin">
+				<span class="message"><span style="color: red;">免责声明</span>：本站主要发布kali工具的中文意译，由投稿者投稿或站长通过翻阅资料，网络查询等综合翻译。如有觉得不妥亦或者通过右上角信息投稿至邮箱。kali工具译文中同时会筛选放置一些较好使用案例到工具中，网络案例均将注明出处,以及顺带分享一些书籍等。此网站公益性非盈利IT技术网站，稿文由投稿者转载自互联网的公开文章，转载文章文末均已注明出处，其内容和图片版权归原网站或作者所有，文中所述不代表本站观点，若有无意侵权或转载不当之处请从网站右上角联系我们处理，谢谢合作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			</div>
+			<div id="scroll_end"></div>
+		</div>
+		<div id="scroll_div_2">
+			<div id="scroll_begin_2">
+				<span class="message"><span style="color: red;">最新通告</span>：wpscan工具使用板块已更新，可进行查阅</span>
+			</div>
+			<div id="scroll_end_2"></div>
+		</div>
+		<div id="showtime"></div>
+		<section>
+			<iframe src="kali-tools.html" frameborder="0" name="main-content" scrolling="auto"></iframe>
+		</section>
+		<header>
+			<div class="hk"></div>
+			<aside>
+				<div class="start-menu">
+						<abbr title="start-menu"><a href="kali-tools.html" target="main-content"><img src="img/kali-logo.png" alt="start-menu"></a></abbr>
+						<ul>
+							<li>information gathering
+								<ul>
+									<li>dns analysis
+										<ul>
+											<li><a href="tools/dnsenum.html" target="main-content">dnsenum</a></li>
+											<li><a href="errpage.html" target="main-content">dnsrecon</a></li>
+											<li><a href="errpage.html" target="main-content">fierce</a></li>
+										</ul>
+									</li>
+									<li>ids/ips identification
+										<ul>
+											<li><a href="errpage.html" target="main-content">ibd</a></li>
+											<li><a href="errpage.html" target="main-content">wafw00f</a></li>
+										</ul>
+									</li>
+									<li>live host identification
+										<ul>
+											<li><a href="errpage.html" target="main-content">arping</a></li>
+											<li><a href="errpage.html" target="main-content">fping</a></li>
+											<li><a href="errpage.html" target="main-content">hping3</a></li>
+											<li><a href="errpage.html" target="main-content">masscan</a></li>
+											<li><a href="errpage.html" target="main-content">thcping6</a></li>
+										</ul>
+									</li>
+									<li>network & port scanners
+										<ul>
+											<li><a href="errpage.html" target="main-content">masscan</a></li>
+											<li><a href="errpage.html" target="main-content">nmap</a></li>
+										</ul>
+									</li>
+									<li>osint analysis
+										<ul>
+											<li><a href="errpage.html" target="main-content">maltego</a></li>
+											<li><a href="errpage.html" target="main-content">theharvester</a></li>
+										</ul>
+									</li>
+									<li>route analysis
+										<ul>
+											<li><a href="errpage.html" target="main-content">netdiscover</a></li>
+											<li><a href="errpage.html" target="main-content">netmask</a></li>
+										</ul>
+									</li>
+									<li>smb analysis
+										<ul>
+											<li><a href="errpage.html" target="main-content">enum4linux</a></li>
+											<li><a href="errpage.html" target="main-content">nbtscan</a></li>
+											<li><a href="errpage.html" target="main-content">smbmap</a></li>
+										</ul>
+									</li>
+									<li>smtp analysis
+										<ul>
+											<li><a href="errpage.html" target="main-content">swaks</a></li>
+										</ul>
+									</li>
+									<li>snmp analysis
+										<ul>
+											<li><a href="errpage.html" target="main-content">onesixtyone</a></li>
+											<li><a href="errpage.html" target="main-content">snmp-check</a></li>
+										</ul>
+									</li>
+									<li>ssl analysis
+										<ul>
+											<li><a href="errpage.html" target="main-content">ssldump</a></li>
+											<li><a href="errpage.html" target="main-content">sslh</a></li>
+											<li><a href="errpage.html" target="main-content">sslscan</a></li>
+											<li><a href="errpage.html" target="main-content">sslyze</a></li>
+										</ul>
+									</li>
+									<li><a href="errpage.html" target="main-content">Dmitry</a></li>
+									<li><a href="errpage.html" target="main-content">Ike-scan</a></li>
+									<li><a href="errpage.html" target="main-content">Maltego</a></li>
+									<li><a href="errpage.html" target="main-content">Netdiscover</a></li>
+									<li><a href="errpage.html" target="main-content">Nmap</a></li>
+									<li><a href="errpage.html" target="main-content">Recon-ng</a></li>
+									<li><a href="errpage.html" target="main-content">sparta</a></li>
+								</ul>
+							</li>
+							<li>vulnerability analysis
+								<ul>
+									<li>fuzzing tools
+										<ul>
+											<li><a href="errpage.html" target="main-content">spike-generic_chunked</a></li>
+											<li><a href="errpage.html" target="main-content">spike-generic_listen_tcp</a></li>
+											<li><a href="errpage.html" target="main-content">spike-generic_send_tcp</a></li>
+											<li><a href="errpage.html" target="main-content">spike-generic_send_udp</a></li>
+										</ul>
+									</li>
+									<li>voip tools
+										<ul>
+											<li><a href="errpage.html" target="main-content">voiphopper</a></li>
+										</ul>
+									</li>
+									<li><a href="errpage.html" target="main-content">nikto</a></li>
+									<li><a href="errpage.html" target="main-content">nmap</a></li>
+									<li><a href="errpage.html" target="main-content">sparta</a></li>
+									<li><a href="errpage.html" target="main-content">unix-privesc-check</a></li>
+								</ul>
+							</li>
+							<li>web application analysis
+								<ul>
+									<li>cms&framework identification
+										<ul>
+											<li><a href="errpage.html" target="main-content">clusterd</a></li>
+											<li><a href="tools/wpscan.html" target="main-content">wpscan</a></li>
+										</ul>
+									</li>
+									<li>web application proxies
+										<ul>
+											<li><a href="errpage.html" target="main-content">burpsuite</a></li>
+										</ul>
+									</li>
+									<li>web crawlers&Directory bruteforce
+										<ul>
+											<li><a href="errpage.html" target="main-content">cutycapt</a></li>
+											<li><a href="errpage.html" target="main-content">dirb</a></li>
+											<li><a href="errpage.html" target="main-content">dirbuster</a></li>
+											<li><a href="errpage.html" target="main-content">wfuzz</a></li>
+										</ul>
+									</li>
+									<li>web vulnerability scanners
+										<ul>
+											<li><a href="errpage.html" target="main-content">cadaver</a></li>
+											<li><a href="errpage.html" target="main-content">clusterd</a></li>
+											<li><a href="errpage.html" target="main-content">davtest</a></li>
+											<li><a href="errpage.html" target="main-content">nikto</a></li>
+											<li><a href="errpage.html" target="main-content">skipfish</a></li>
+											<li><a href="errpage.html" target="main-content">whatweb</a></li>
+											<li><a href="errpage.html" target="main-content">wpscan</a></li>
+										</ul>
+									</li>
+									<li><a href="errpage.html" target="main-content">burpsuite</a></li>
+									<li><a href="errpage.html" target="main-content">commix</a></li>
+									<li><a href="errpage.html" target="main-content">skipfish</a></li>
+									<li><a href="errpage.html" target="main-content">sqlmap</a></li>
+									<li><a href="errpage.html" target="main-content">wpscan</a></li>
+								</ul>
+							</li>
+							<li>database assessment
+								<ul>
+									<li><a href="errpage.html" target="main-content">sqlite database browser</a></li>
+									<li><a href="errpage.html" target="main-content">sqlmap</a></li>
+								</ul>
+							</li>
+							<li>password attacks
+								<ul>
+									<li>offline attacks
+										<ul>
+											<li><a href="errpage.html" target="main-content">chntpw</a></li>
+											<li><a href="errpage.html" target="main-content">hashcat</a></li>
+											<li><a href="errpage.html" target="main-content">hashid</a></li>
+											<li><a href="errpage.html" target="main-content">hash-identifier</a></li>
+											<li><a href="errpage.html" target="main-content">ophcrack-cli</a></li>
+											<li><a href="errpage.html" target="main-content">samdump2</a></li>
+										</ul>
+									</li>
+									<li>online attacks
+										<ul>
+											<li><a href="errpage.html" target="main-content">hydra</a></li>
+											<li><a href="errpage.html" target="main-content">hydra-gtk</a></li>
+											<li><a href="errpage.html" target="main-content">onesixtyone</a></li>
+											<li><a href="errpage.html" target="main-content">patator</a></li>
+											<li><a href="errpage.html" target="main-content">thc-pptp-bruter</a></li>
+										</ul>
+									</li>
+									<li>passing the hash tools
+										<ul>
+											<li><a href="errpage.html" target="main-content">mimikatz</a></li>
+											<li><a href="errpage.html" target="main-content">pth-curl</a></li>
+											<li><a href="errpage.html" target="main-content">pth-net</a></li>
+											<li><a href="errpage.html" target="main-content">pth-openchangeclient</a></li>
+											<li><a href="errpage.html" target="main-content">pth-rpcclient</a></li>
+											<li><a href="errpage.html" target="main-content">pth-smbclient</a></li>
+											<li><a href="errpage.html" target="main-content">pth-smbget</a></li>
+											<li><a href="errpage.html" target="main-content">pth-sqsh</a></li>
+											<li><a href="errpage.html" target="main-content">pth-winexe</a></li>
+											<li><a href="errpage.html" target="main-content">pth-wmic</a></li>
+											<li><a href="errpage.html" target="main-content">pth-wmis</a></li>
+											<li><a href="errpage.html" target="main-content">pth-xfreerdp</a></li>
+											<li><a href="errpage.html" target="main-content">smbmap</a></li>
+										</ul>
+									</li>
+									<li>password profiling & wordlists
+										<ul>
+											<li><a href="errpage.html" target="main-content">cewl</a></li>
+											<li><a href="errpage.html" target="main-content">crunch</a></li>
+											<li><a href="errpage.html" target="main-content">rsmangler</a></li>
+											<li><a href="errpage.html" target="main-content">wordlists</a></li>
+										</ul>
+									</li>
+									<li><a href="errpage.html" target="main-content">cewl</a></li>
+									<li><a href="errpage.html" target="main-content">crunch</a></li>
+									<li><a href="errpage.html" target="main-content">hashcat</a></li>
+									<li><a href="errpage.html" target="main-content">john</a></li>
+									<li><a href="errpage.html" target="main-content">ncrack</a></li>
+									<li><a href="errpage.html" target="main-content">ophcrack</a></li>
+									<li><a href="errpage.html" target="main-content">wordlists</a></li>
+								</ul>
+							</li>
+							<li>wireless attacks
+								<ul>
+									<li>802.11 wireless tools
+										<ul>
+											<li><a href="errpage.html" target="main-content">Bully</a></li>
+											<li><a href="errpage.html" target="main-content">Fern wifi cracker</a></li>
+										</ul>
+									</li>
+									<li>Bluetooth tools
+										<ul>
+											<li><a href="errpage.html" target="main-content">spooftooph</a></li>
+										</ul>
+									</li>
+									<li><a href="errpage.html" target="main-content">Aircrack-ng</a></li>
+									<li><a href="errpage.html" target="main-content">Fern wifi cracker</a></li>
+									<li><a href="errpage.html" target="main-content">Kismet</a></li>
+									<li><a href="errpage.html" target="main-content">Pixiewps</a></li>
+									<li><a href="errpage.html" target="main-content">Reaver</a></li>
+									<li><a href="errpage.html" target="main-content">wifite</a></li>
+								</ul>
+							</li>
+							<li>reverse engineering
+								<ul>
+									<li><a href="errpage.html" target="main-content">clang</a></li>
+									<li><a href="errpage.html" target="main-content">clang++</a></li>
+									<li><a href="errpage.html" target="main-content">nasm shell</a></li>
+									<li><a href="errpage.html" target="main-content">radare2</a></li>
+								</ul>
+							</li>
+							<li>exploitation tools
+								<ul>
+									<li><a href="errpage.html" target="main-content">Metasploit framework</a></li>
+									<li><a href="errpage.html" target="main-content">Msf payload creator</a></li>
+									<li><a href="errpage.html" target="main-content">Searchsploit</a></li>
+									<li><a href="errpage.html" target="main-content">Social engineering toolkit</a></li>
+									<li><a href="errpage.html" target="main-content">sqlmap</a></li>
+								</ul>
+							</li>
+							<li>sniffing & spoofing
+								<ul>
+									<li>
+										network sniffers
+										<ul>
+											<li><a href="errpage.html" target="main-content">dnschef</a></li>
+											<li><a href="errpage.html" target="main-content">netsniff-ng</a></li>
+										</ul>
+									</li>
+									<li>spoofing and mitm
+										<ul>
+											<li><a href="errpage.html" target="main-content">dnschef</a></li>
+											<li><a href="errpage.html" target="main-content">rebind</a></li>
+											<li><a href="errpage.html" target="main-content">sslsplit</a></li>
+											<li><a href="errpage.html" target="main-content">tcpreplay</a></li>
+										</ul>
+									</li>
+									<li><a href="errpage.html" target="main-content">Ettercap-graphical</a></li>
+									<li><a href="errpage.html" target="main-content">Macchanger</a></li>
+									<li><a href="errpage.html" target="main-content">Mitmproxy</a></li>
+									<li><a href="errpage.html" target="main-content">Netsniff-ng</a></li>
+									<li><a href="errpage.html" target="main-content">Responder</a></li>
+									<li><a href="errpage.html" target="main-content">wireshark</a></li>
+								</ul>
+							</li>
+							<li>post exploitation
+								<ul>
+									<li>os backdoors
+										<ul>
+											<li><a href="errpage.html" target="main-content">dbd</a></li>
+											<li><a href="errpage.html" target="main-content">powersploit</a></li>
+											<li><a href="errpage.html" target="main-content">sbd</a></li>
+										</ul>
+									</li>
+									<li>tunneling & exfiltration
+										<ul>
+											<li><a href="errpage.html" target="main-content"></a>i.	dbd</li>
+											<li><a href="errpage.html" target="main-content"></a>ii.	dns2tcpc</li>
+											<li><a href="errpage.html" target="main-content"></a> dns2tcpd</li>
+											<li><a href="errpage.html" target="main-content"></a>exe2hex</li>
+											<li><a href="errpage.html" target="main-content"></a>iodine</li>
+											<li><a href="errpage.html" target="main-content"></a>miredo</li>
+											<li><a href="errpage.html" target="main-content"></a>proxychains</li>
+											<li><a href="errpage.html" target="main-content"></a>proxytunnel</li>
+											<li><a href="errpage.html" target="main-content"></a>ptunnel</li>
+											<li><a href="errpage.html" target="main-content"></a>pwnat</li>
+											<li><a href="errpage.html" target="main-content"></a>sslh</li>
+											<li><a href="errpage.html" target="main-content"></a>stunnel4</li>
+											<li><a href="errpage.html" target="main-content"></a>udptunnel</li>
+										</ul>
+									</li>
+									<li>web backdoors
+										<ul>
+											<li><a href="errpage.html"target="main-content">laudanum</a></li>
+											<li><a href="errpage.html" target="main-content">weevely</a></li>
+										</ul>
+									</li>
+									<li><a href="errpage.html" target="main-content">exe2hex</a></li>
+									<li><a href="errpage.html" target="main-content">mimikatz</a></li>
+									<li><a href="errpage.html" target="main-content">powersploit</a></li>
+									<li><a href="errpage.html" target="main-content">proxychains</a></li>
+									<li><a href="errpage.html" target="main-content">weevely</a></li>
+								</ul>
+							</li>
+							<li>forensics
+								<ul>
+									<li>forensic carving tool
+										<ul>
+											<li><a href="errpage.html" target="main-content">magicrescue</a></li>
+											<li><a href="errpage.html" target="main-content">scalpel</a></li>
+											<li><a href="errpage.html" target="main-content">scrounge-ntfs</a></li>
+										</ul>
+									</li>
+									<li>forensic imaging tools
+										<ul>
+											<li><a href="errpage.html" target="main-content">guymager</a></li>
+										</ul>
+									</li>
+									<li>pdf forensics tools
+										<ul>
+											<li><a href="errpage.html" target="main-content">pdfid</a></li>
+											<li><a href="errpage.html" target="main-content">pdf-parser</a></li>
+											<li><a href="errpage.html" target="main-content">peepdf</a></li>
+										</ul>
+									</li>
+									<li>sleuth kit suite
+										<ul>
+											<li><a href="errpage.html" target="main-content">autopsy</a></li>
+											<li><a href="errpage.html" target="main-content">autopsy</a></li>
+											<li><a href="errpage.html" target="main-content">blkcat</a></li>
+											<li><a href="errpage.html" target="main-content">blkls</a></li>
+											<li><a href="errpage.html" target="main-content">blkstat</a></li>
+											<li><a href="errpage.html" target="main-content">ffind</a></li>
+											<li><a href="errpage.html" target="main-content">fls</a></li>
+											<li><a href="errpage.html" target="main-content">fsstat</a></li>
+											<li><a href="errpage.html" target="main-content">hfind</a></li>
+											<li><a href="errpage.html" target="main-content">icat-sleuthkit</a></li>
+											<li><a href="errpage.html" target="main-content">ifind</a></li>
+											<li><a href="errpage.html" target="main-content">ils-sleuthkit</a></li>
+											<li><a href="errpage.html" target="main-content">img_cat</a></li>
+											<li><a href="errpage.html" target="main-content">img_stat</a></li>
+											<li><a href="errpage.html" target="main-content">istat</a></li>
+											<li><a href="errpage.html" target="main-content">jcat</a></li>
+											<li><a href="errpage.html" target="main-content">jls</a></li>
+											<li><a href="errpage.html" target="main-content">mactime-sleuthkit</a></li>
+											<li><a href="errpage.html" target="main-content">mmcat</a></li>
+											<li><a href="errpage.html" target="main-content">mmls</a></li>
+											<li><a href="errpage.html" target="main-content">sigfind</a></li>
+											<li><a href="errpage.html" target="main-content">sorter</a></li>
+											<li><a href="errpage.html" target="main-content">srch_strings</a></li>
+											<li><a href="errpage.html" target="main-content">tsk_comparedir</a></li>
+											<li><a href="errpage.html" target="main-content">tsk_gettimes</a></li>
+											<li><a href="errpage.html" target="main-content">tsk_loaddb</a></li>
+											<li><a href="errpage.html" target="main-content">tsk_recover</a></li>
+										</ul>
+									</li>
+									<li><a href="errpage.html" target="main-content">autopsy</a></li>
+									<li><a href="errpage.html" target="main-content">binwalk</a></li>
+									<li><a href="errpage.html" target="main-content">bulk_extractor</a></li>
+									<li><a href="errpage.html" target="main-content">hashdeep</a></li>
+								</ul>
+							</li>
+							<li>reporting tools
+								<ul>
+									<li><a href="errpage.html" target="main-content">cutycapt</a></li>
+									<li><a href="errpage.html" target="main-content">faraday ide</a></li>
+									<li><a href="errpage.html" target="main-content">maltego</a></li>
+									<li><a href="errpage.html" target="main-content">pipal</a></li>
+									<li><a href="errpage.html" target="main-content">recordmydesktop</a></li>
+								</ul>
+							</li>
+							<li>social engineering tools
+								<ul>
+									<li><a href="errpage.html" target="main-content">maltego</a></li>
+									<li><a href="errpage.html" target="main-content">msf payload creator</a></li>
+									<li><a href="errpage.html"target="main-content">social engineering toolkit</a></li>
+								</ul>
+							</li>
+						</ul>
+				</div>
+				<div class="start-book">
+					<abbr title="kali书籍"><a href="book/kali-ebook.html" target="main-content"><img class="book" src="img/book.png" alt="book"></a></abbr>
+					<ul>
+						<li><a href="book/kali-book-1.html" target="main-content">Basic-Security-Testing-with-Kali-Linux</a></li>
+						<li><a href="book/kali-book-2.html" target="main-content">Kali Linux 2 Assuring Security by Penetration Testing-Packt Publishing (2016)</a></li>
+						<li><a href="book/kali-book-3.html" target="main-content">Kali Linux Cookbook-Packt Publishing (2013)</a></li>
+						<li><a href="book/kali-book-4.html" target="main-content">Kali Linux Wireless Pentesting and Security for Beginners</a></li>
+						<li><a href="book/kali-book-5.html" target="main-content">Kali+Linux渗透测试技术详解</a></li>
+						<li><a href="book/kali-book-6.html" target="main-content">Kali Linux 秘籍 中文版</a></li>
+						<li><a href="book/kali-book-7.html" target="main-content">Kali-Linux-CTF-Blueprints</a></li>
+						<li><a href="book/kali-book-8.html" target="main-content">Kali Linux 网络扫描秘籍 中文版</a></li>
+						<li><a href="book/kali-book-9.html" target="main-content">Kali-Linux-Social-Engineering</a></li>
+						<li><a href="book/kali-book-10.html" target="main-content">Kali Linux Web 渗透测试秘籍 中文版</a></li>
+						<li><a href="book/kali-book-11.html" target="main-content">Kali Linux 无线渗透测试入门指南 中文版</a></li>
+						<li><a href="book/kali-book-12.html" target="main-content">Linux Basics for Hackers</a></li>
+						<li><a href="book/kali-book-13.html" target="main-content">Mastering Kali Linux wireless pentesting</a></li>
+						<li><a href="book/kali-book-14.html" target="main-content">Masterking-Kali-linux</a></li>
+						<li><a href="book/kali-book-15.html" target="main-content">Kali Linux & BackTrack渗透测试实战</a></li>
+						<li><a href="book/kali-book-16.html" target="main-content">Kali Linux高级渗透测试</a></li>
+						<li><a href="book/kali-book-17.html" target="main-content">Kali Linux渗透测试的艺术</a></li>
+						<li><a href="book/kali-book-18.html" target="main-content">Kali Linux无线网络渗透测试详解</a></li>
+						<li><a href="book/kali-book-19.html" target="main-content">Metasploit渗透测试魔鬼训练营-完整版</a></li>
+						<li><a href="book/kali-book-20.html" target="main-content">Metasploit渗透测试指南(中文完整清晰版)</a></li>
+						<li><a href="book/kali-book-21.html" target="main-content">Web渗透测试使用kali linux</a></li>
+					</ul>
+				</div>
+				<div class="shutdown">
+					<abbr title="关闭桌面窗口"><a href="main-content/block.html" target="main-content"><img src="img/shutdown.png" alt="shutdown"></a></abbr>
+				</div>
+			</aside>
+			<div class="other">
+				<div class="sys">
+					<abbr title="关注一下"><img src="img/QR.png" alt="QR"></abbr>
+						<div class="btn-qr">
+							<img src="img/T-QR.png" alt="T-QR">
+						</div>
+				</div>
+				<div class="mp">
+					<abbr title="名片"><a href="main-content/mp.html" target="main-content"><img  src="img/mp.png" alt="mp"></a></abbr>
+				</div>
+			</div>
+		</header>
+		<footer>
+			<p><a href="main-content/site-class.html" target="main-content">站点内容分类</a>&#8722;<a href="kali-tools.html" target="main-content">kali工具集</a>&#8722;<a href="book/kali-ebook.html" target="main-content">kali书籍</a>&#8722;更多关注：<a href="main-content/QR.html" target="main-content">Linux之实验笔记</a></p>
+		</footer>
+	</div>
+	<script>
+		var speed = 50;
+		var MyMar = null;
+		var scroll_begin = document.getElementById("scroll_begin","scroll_begin_2");
+		var scroll_end = document.getElementById("scroll_end","scroll_end_2");
+		var scroll_div = document.getElementById("scroll_div","scroll_div_2");
+		scroll_end.innerHTML = scroll_begin.innerHTML;
+
+		function Marquee() {
+		if(scroll_end.offsetWidth - scroll_div.scrollLeft <= 0)
+			scroll_div.scrollLeft -= scroll_begin.offsetWidth;
+		else
+			scroll_div.scrollLeft++;
+		}
+		MyMar = setInterval(Marquee, speed);
+		scroll_div.onmouseover = function() {　　　　　　　
+			clearInterval(MyMar);　　　　　
+		}　　　　
+		scroll_div.onmouseout = function() {　　　　　　　
+			MyMar = setInterval(Marquee, speed);　　　　　　　　　
+		}
+	</script>
+	<script>
+        window.onload = function() {  
+		var show = document.getElementById("showtime");  
+		setInterval(function() {   
+		var time = new Date();   // 程序计时的月从0开始取值后+1   
+		var m = time.getMonth() + 1;   
+		var t = time.getFullYear() + "-" + m + "-"     
+		+ time.getDate() + " " + time.getHours() + ":"     
+		+ time.getMinutes() + ":" + time.getSeconds();   
+		show.innerHTML = t;  
+		}, 1000); 
+		};
+    </script>
+</body>
+</html>
