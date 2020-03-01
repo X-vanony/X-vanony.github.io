@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | X Learning_Record</title>
+  <title>HTTP基础 | X Learning_Record</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="X Learning_Record">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="http基础记录 请求方法 常用头信息 响应状态码 响应体">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP基础">
+<meta property="og:url" content="http://yoursite.com/2020/03/01/HTTP%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="X Learning_Record">
+<meta property="og:description" content="http基础记录 请求方法 常用头信息 响应状态码 响应体">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-01T04:14:40.000Z">
+<meta property="article:modified_time" content="2020-03-01T05:54:40.494Z">
 <meta property="article:author" content="Vanony X">
-<meta property="article:tag" content="python">
+<meta property="article:tag" content="HTTP请求">
+<meta property="article:tag" content="响应状态码">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="X Learning_Record" type="application/atom+xml">
@@ -191,78 +196,424 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-HTTP基础" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/01/css%E9%80%89%E6%8B%A9%E5%99%A8%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99/" class="archive-article-date">
-  	<time datetime="2020-03-01T08:57:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        <!-- <center>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/01/css%E9%80%89%E6%8B%A9%E5%99%A8%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99/">css选择器语法规则</a>
+    <h1 class="article-title" itemprop="name">
+      HTTP基础
     </h1>
   
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">语法规则</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/01/HTTP%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+</center> -->
+        
+        <a href="/2020/03/01/HTTP%E5%9F%BA%E7%A1%80/" class="archive-article-date">
   	<time datetime="2020-03-01T04:14:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
 </a>
-        </div>
-    	 
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+		<center>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/01/HTTP%E5%9F%BA%E7%A1%80/">HTTP基础</a>
+    <h1 class="article-title" itemprop="name">
+      HTTP基础
     </h1>
   
+</center>
+		
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
+        <!--这里样式可以自己定制-->
+        <span class="post-count" style="font-size: 16px;color: grey">1.3k字</span>
+      </span>
+    </span>
+    
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
+        <span class="post-count" style="font-size: 16px;color: grey">4分</span>
+      </span>
+    </span>
+</div>
 
-        <div class="article-info info-on-right">
           
+      
+        <h3 id="http基础记录"><a href="#http基础记录" class="headerlink" title="http基础记录"></a>http基础记录</h3><ol>
+<li><strong>请求方法</strong></li>
+<li><strong>常用头信息</strong></li>
+<li><strong>响应状态码</strong></li>
+<li><strong>响应体</strong></li>
+</ol>
+<a id="more"></a>
+
+<hr>
+<ul>
+<li><h5 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a><em>请求方法</em></h5></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>方法</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">GET</td>
+<td>请求页面，并返回页面内容（<strong>常用</strong>）</td>
+</tr>
+<tr>
+<td align="center">HEAD</td>
+<td>类似于GET请求，只不过返回的响应中没有具体的内容，用于获取报头</td>
+</tr>
+<tr>
+<td align="center">POST</td>
+<td>大多用于提交表单或上传文件，数据包含在请求体中（<strong>常用</strong>）</td>
+</tr>
+<tr>
+<td align="center">PUT</td>
+<td>从客户端向服务器传送的数据取代指定文档中个的内容</td>
+</tr>
+<tr>
+<td align="center">DELETE</td>
+<td>请求服务器删除指定的页面</td>
+</tr>
+<tr>
+<td align="center">CONNECT</td>
+<td>把服务器当做跳板，让服务器代替客户端访问其他网页</td>
+</tr>
+<tr>
+<td align="center">OPTIONS</td>
+<td>允许客户端查看服务器的性能</td>
+</tr>
+<tr>
+<td align="center">TRACE</td>
+<td>回显服务器收到的请求，主要用于测试或诊断</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong><em>常见头信息</em></strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">头信息</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Accept</td>
+<td>请求报头域</td>
+</tr>
+<tr>
+<td align="center">Accept-Language</td>
+<td>指定客户端可接受的语言类型</td>
+</tr>
+<tr>
+<td align="center">Accept-Encoding</td>
+<td>指定客户端可接受的内容编码</td>
+</tr>
+<tr>
+<td align="center">Host</td>
+<td>用于指定请求的资源的主机IP和端口号</td>
+</tr>
+<tr>
+<td align="center">Cookie/Cookies</td>
+<td>主要是维持当前访问会话。</td>
+</tr>
+<tr>
+<td align="center">Referer</td>
+<td>标识请求来源</td>
+</tr>
+<tr>
+<td align="center">User-Agent</td>
+<td>简称UA，用于标识客户使用的操作系统及版本，浏览器及版本等信息</td>
+</tr>
+<tr>
+<td align="center">Content-Type</td>
+<td>用来表示具体请求中的媒体类型信息（text/html：返回HTML文档；application/x-javascript：返回Javascript文件；image/jpeg：返回图片）</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">Content-Type</th>
+<th>提交数据的方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">application/x-www-form-urlencoded</td>
+<td>表单数据</td>
+</tr>
+<tr>
+<td align="center">multipart/form-data</td>
+<td>表单文件上传</td>
+</tr>
+<tr>
+<td align="center">application/json</td>
+<td>序列化JSON数据</td>
+</tr>
+<tr>
+<td align="center">text/xml</td>
+<td>XML数据状态码</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong><em>响应状态码</em></strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>说明</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>100</td>
+<td>继续</td>
+<td>请求者应当继续提出请求。服务器已收到请求的一部分，正在等待其余部分</td>
+</tr>
+<tr>
+<td>101</td>
+<td>切换协议</td>
+<td>请求者已要求服务器切换协议，服务器已确认并准备切换</td>
+</tr>
+<tr>
+<td>200</td>
+<td>成功</td>
+<td>服务器已成功处理了请求</td>
+</tr>
+<tr>
+<td>201</td>
+<td>已创建</td>
+<td>请求成功并且服务器创建了新的资源</td>
+</tr>
+<tr>
+<td>202</td>
+<td>已接受</td>
+<td>服务器已接受请求，但尚未处理</td>
+</tr>
+<tr>
+<td>203</td>
+<td>非授权信息</td>
+<td>服务器已成功处理了请求，但返回的信息可能来自另一个源</td>
+</tr>
+<tr>
+<td>204</td>
+<td>无内容</td>
+<td>服务器成功处理了请求，但是没有返回任何内容</td>
+</tr>
+<tr>
+<td>205</td>
+<td>重置内容</td>
+<td>服务器成功处理了请求，内容被重置</td>
+</tr>
+<tr>
+<td>206</td>
+<td>部分内容</td>
+<td>服务器成功处理了部分请求</td>
+</tr>
+<tr>
+<td>300</td>
+<td>多种选择</td>
+<td>针对请求，服务器可执行多种操作</td>
+</tr>
+<tr>
+<td>301</td>
+<td>永久移动</td>
+<td>请求的网页已永久移动到新位置，寄永久重定向</td>
+</tr>
+<tr>
+<td>302</td>
+<td>临时移动</td>
+<td>请求的网页暂时跳转到其他页面，即暂时重定向</td>
+</tr>
+<tr>
+<td>303</td>
+<td>查看其他位置</td>
+<td>如果原来的请求是POST，重定向目标文档应该通过GET提取</td>
+</tr>
+<tr>
+<td>304</td>
+<td>未修改</td>
+<td>此次请求返回的网页未修改，继续使用上次的资源</td>
+</tr>
+<tr>
+<td>305</td>
+<td>使用代理</td>
+<td>请求者应该使用代理访问该网页</td>
+</tr>
+<tr>
+<td>307</td>
+<td>临时重定向</td>
+<td>请求的资源临时从其他位置响应</td>
+</tr>
+<tr>
+<td>400</td>
+<td>错误请求</td>
+<td>服务器无法解析该请求</td>
+</tr>
+<tr>
+<td>401</td>
+<td>未授权</td>
+<td>请求没有进行身份验证或验证未通过</td>
+</tr>
+<tr>
+<td>403</td>
+<td>禁止访问</td>
+<td>服务器拒绝此请求</td>
+</tr>
+<tr>
+<td>404</td>
+<td>未找到</td>
+<td>服务器找不到请求的网页</td>
+</tr>
+<tr>
+<td>405</td>
+<td>方法禁用</td>
+<td>服务器禁用了请求中指定的方法</td>
+</tr>
+<tr>
+<td>406</td>
+<td>不接受</td>
+<td>无法使用请求的内容响应请求的网页</td>
+</tr>
+<tr>
+<td>407</td>
+<td>需要代理授权</td>
+<td>请求者需要使用代理授权</td>
+</tr>
+<tr>
+<td>408</td>
+<td>请求超时</td>
+<td>服务器请求超时</td>
+</tr>
+<tr>
+<td>409</td>
+<td>冲突</td>
+<td>服务器在完成请求是发生冲突</td>
+</tr>
+<tr>
+<td>410</td>
+<td>已删除</td>
+<td>请求的资源已永久删除</td>
+</tr>
+<tr>
+<td>411</td>
+<td>需要有效长度</td>
+<td>服务器不接受不含有效内容长度标头字段的请求</td>
+</tr>
+<tr>
+<td>412</td>
+<td>未满足前提条件</td>
+<td>服务器未满足请求者在请求中设置的其中一个前提条件</td>
+</tr>
+<tr>
+<td>413</td>
+<td>请求实体过大</td>
+<td>请求实体过大，超出服务器的处理能力</td>
+</tr>
+<tr>
+<td>414</td>
+<td>请求URI过长</td>
+<td>请求网址过长，服务器无法处理</td>
+</tr>
+<tr>
+<td>415</td>
+<td>不支持类型</td>
+<td>请求格式不被请求页面支持</td>
+</tr>
+<tr>
+<td>416</td>
+<td>请求范围不符</td>
+<td>页面无法提供请求的范围</td>
+</tr>
+<tr>
+<td>417</td>
+<td>未满足期望值</td>
+<td>服务器未满足期望请求标头字段的要求</td>
+</tr>
+<tr>
+<td>500</td>
+<td>服务器内部错误</td>
+<td>服务器遇到错误无法完成请求</td>
+</tr>
+<tr>
+<td>501</td>
+<td>未实现</td>
+<td>服务器不具备完成请求的功能</td>
+</tr>
+<tr>
+<td>502</td>
+<td>错误网关</td>
+<td>服务器作为网关或代理，从上游服务器收到无效响应</td>
+</tr>
+<tr>
+<td>503</td>
+<td>服务不可用</td>
+<td>服务器目前无法使用</td>
+</tr>
+<tr>
+<td>504</td>
+<td>网关超时</td>
+<td>服务器作为网关或代理，但是没有及时从上游服务器收到请求</td>
+</tr>
+<tr>
+<td>505</td>
+<td>HTTP版本不支持</td>
+<td>服务器不支持请求中所用的HTTP协议版本</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong><em>响应体</em></strong></li>
+</ul>
+<p>响应体内容就是我们需要解析的目标，处于浏览器开发者工具中的Preview中。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请的咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat_pay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -278,107 +629,134 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/01/HTTP%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/01/conda%E4%B9%8Btesserocr%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-03-01T01:19:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/03/01/css%E9%80%89%E6%8B%A9%E5%99%A8%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          css选择器语法规则
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/01/conda%E4%B9%8Btesserocr%E5%AE%89%E8%A3%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">conda之tesserocr安装</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/01/conda%E4%B9%8Btesserocr%E5%AE%89%E8%A3%85/">conda之tesserocr安装</a>
-    </h1>
+  
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80ODgzNC8yNTMyOA==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tesserocr</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">conda</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/28/python%E7%88%AC%E8%99%AB%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-02-28T13:16:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/28/python%E7%88%AC%E8%99%AB%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/">python爬虫问题（一）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">报错</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -403,8 +781,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

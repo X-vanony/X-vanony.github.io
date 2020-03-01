@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | X Learning_Record</title>
+  <title>css选择器语法规则 | X Learning_Record</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="X Learning_Record">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="css选择器定位节点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css选择器语法规则">
+<meta property="og:url" content="http://yoursite.com/2020/03/01/css%E9%80%89%E6%8B%A9%E5%99%A8%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99/index.html">
 <meta property="og:site_name" content="X Learning_Record">
+<meta property="og:description" content="css选择器定位节点">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-01T08:57:23.000Z">
+<meta property="article:modified_time" content="2020-03-01T09:32:05.976Z">
 <meta property="article:author" content="Vanony X">
-<meta property="article:tag" content="python">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="语法规则">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="X Learning_Record" type="application/atom+xml">
@@ -191,36 +196,320 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-css选择器语法规则" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/01/css%E9%80%89%E6%8B%A9%E5%99%A8%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99/" class="archive-article-date">
-  	<time datetime="2020-03-01T08:57:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        <!-- <center>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/01/css%E9%80%89%E6%8B%A9%E5%99%A8%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99/">css选择器语法规则</a>
+    <h1 class="article-title" itemprop="name">
+      css选择器语法规则
     </h1>
   
+</center> -->
+        
+        <a href="/2020/03/01/css%E9%80%89%E6%8B%A9%E5%99%A8%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99/" class="archive-article-date">
+  	<time datetime="2020-03-01T08:57:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+		<center>
+  
+    <h1 class="article-title" itemprop="name">
+      css选择器语法规则
+    </h1>
+  
+</center>
+		
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
+        <!--这里样式可以自己定制-->
+        <span class="post-count" style="font-size: 16px;color: grey">779字</span>
+      </span>
+    </span>
+    
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
+        <span class="post-count" style="font-size: 16px;color: grey">3分</span>
+      </span>
+    </span>
+</div>
 
-        <div class="article-info info-on-right">
           
+      
+        <h4 id="css选择器定位节点"><a href="#css选择器定位节点" class="headerlink" title="css选择器定位节点"></a>css选择器定位节点</h4><a id="more"></a>
+
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>例子</th>
+<th>例子描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.class</td>
+<td>.intro</td>
+<td>选中class = “intro”的所有节点</td>
+</tr>
+<tr>
+<td>#id</td>
+<td>#firstname</td>
+<td>选择id = “firstname”的所有节点</td>
+</tr>
+<tr>
+<td>*</td>
+<td>*</td>
+<td>选择所有节点</td>
+</tr>
+<tr>
+<td>element</td>
+<td>p</td>
+<td>选择所有p节点</td>
+</tr>
+<tr>
+<td>element，element</td>
+<td>div，p</td>
+<td>选择所有div节点和所有p节点</td>
+</tr>
+<tr>
+<td>element element</td>
+<td>div p</td>
+<td>选择div节点内部所有的p节点</td>
+</tr>
+<tr>
+<td>element&gt;element</td>
+<td>div&gt;p</td>
+<td>选择父节点为div的所有p节点</td>
+</tr>
+<tr>
+<td>element+element</td>
+<td>div+p</td>
+<td>选择紧接在div节点之后的所有p节点</td>
+</tr>
+<tr>
+<td>[attribute]</td>
+<td>[target]</td>
+<td>选择带有target属性的所有节点</td>
+</tr>
+<tr>
+<td>[attribute=value]</td>
+<td>[target=blank]</td>
+<td>选择target=“blank”的所有节点</td>
+</tr>
+<tr>
+<td>[attribute~=value]</td>
+<td>[title~=flower]</td>
+<td>选择title属性包含单词flower的所有节点</td>
+</tr>
+<tr>
+<td>：link</td>
+<td>a:link</td>
+<td>选择所有未被访问的链接</td>
+</tr>
+<tr>
+<td>：visited</td>
+<td>a:visited</td>
+<td>选择所有已被访问的链接</td>
+</tr>
+<tr>
+<td>：active</td>
+<td>a:active</td>
+<td>选择活动链接</td>
+</tr>
+<tr>
+<td>：hover</td>
+<td>a:hover</td>
+<td>选择鼠标指针位于其上的链接</td>
+</tr>
+<tr>
+<td>：focus</td>
+<td>input：focus</td>
+<td>选择获得焦点的input节点</td>
+</tr>
+<tr>
+<td>：first-letter</td>
+<td>p:first-letter</td>
+<td>选择每个p节点的首字母</td>
+</tr>
+<tr>
+<td>：first-line</td>
+<td>p:first-line</td>
+<td>选择每个p节点的首行</td>
+</tr>
+<tr>
+<td>：first-child</td>
+<td>p:first-child</td>
+<td>选择属于父节点的第一个子节点的所有p节点</td>
+</tr>
+<tr>
+<td>：before</td>
+<td>p:before</td>
+<td>在每个p节点的内容之前插入内容</td>
+</tr>
+<tr>
+<td>：after</td>
+<td>p:after</td>
+<td>在每个p节点的内容之后插入内容</td>
+</tr>
+<tr>
+<td>：lang（language）</td>
+<td>p:lang</td>
+<td>选择带有以it开头的lang属性值的所有p节点</td>
+</tr>
+<tr>
+<td>element1~element2</td>
+<td>p~ul</td>
+<td>选择前面有p节点的所有ul节点</td>
+</tr>
+<tr>
+<td>[attribute^=value]</td>
+<td>a[src^=”https”]</td>
+<td>选择其src属性值以https开头的所有a节点</td>
+</tr>
+<tr>
+<td>[attribute$=value]</td>
+<td>a[src$=”.pdf”]</td>
+<td>选择其src属性以.pdf结尾的所有a节点</td>
+</tr>
+<tr>
+<td>[attribute*=value]</td>
+<td>a[src*=”abc”]</td>
+<td>选择其src属性中包含abc子串的所有a节点</td>
+</tr>
+<tr>
+<td>：first-of-type</td>
+<td>p:first-of-type</td>
+<td>选择属于其父节点的首个p节点的所有p节点</td>
+</tr>
+<tr>
+<td>：last-of-type</td>
+<td>p:last-of-type</td>
+<td>选择属于其父节点的最后p节点的所有p节点</td>
+</tr>
+<tr>
+<td>：only-of-type</td>
+<td>p:only-of-type</td>
+<td>选择属于其父节点唯一的p节点的所有p节点</td>
+</tr>
+<tr>
+<td>：only-child</td>
+<td>p:only-child</td>
+<td>选择属于其父节点的唯一子节点的所有p节点</td>
+</tr>
+<tr>
+<td>：nth-child（n)</td>
+<td>p:nth-child</td>
+<td>选择属于其父节点的第二个子节点的所有p节点</td>
+</tr>
+<tr>
+<td>：nth-last-child（n）</td>
+<td>p:nth-last-child</td>
+<td>选择属于其父节点的最后一个子节点开始计数</td>
+</tr>
+<tr>
+<td>：nth-of-type（n）</td>
+<td>p:nth-of-type</td>
+<td>选择属于其父节点第二个p节点的所有p节点</td>
+</tr>
+<tr>
+<td>：nth-last-of-type（n）</td>
+<td>p:nth-last-of-type</td>
+<td>选择属于其父节点的最后一个子节点开始计数</td>
+</tr>
+<tr>
+<td>：last-child</td>
+<td>p:last-child</td>
+<td>选择属于其父节点最后一个子节点的所有p节点</td>
+</tr>
+<tr>
+<td>：root</td>
+<td>：root</td>
+<td>选择文档的根节点</td>
+</tr>
+<tr>
+<td>：empty</td>
+<td>p:empty</td>
+<td>选择没有子节点的所有p节点（包括文本节点）</td>
+</tr>
+<tr>
+<td>：target</td>
+<td>#news：target</td>
+<td>选择当前活动的#news节点</td>
+</tr>
+<tr>
+<td>：enabled</td>
+<td>input：enabled</td>
+<td>选择每个启用的input节点</td>
+</tr>
+<tr>
+<td>：disabled</td>
+<td>input：disabled</td>
+<td>选择每个禁用的input节点</td>
+</tr>
+<tr>
+<td>：checked</td>
+<td>input：checked</td>
+<td>选择每个被选中的input节点</td>
+</tr>
+<tr>
+<td>：not（selector）</td>
+<td>：not</td>
+<td>选择非p节点的所有节点</td>
+</tr>
+<tr>
+<td>：：selection</td>
+<td>：：selection</td>
+<td>选择被用户选取的节点部分</td>
+</tr>
+</tbody></table>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请的咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat_pay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -236,149 +525,125 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/01/css%E9%80%89%E6%8B%A9%E5%99%A8%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/01/HTTP%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-03-01T04:14:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/01/HTTP%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTTP基础</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/01/HTTP%E5%9F%BA%E7%A1%80/">HTTP基础</a>
-    </h1>
+  
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80ODgzNC8yNTMyOA==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">HTTP请求</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">响应状态码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/01/conda%E4%B9%8Btesserocr%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-03-01T01:19:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/01/conda%E4%B9%8Btesserocr%E5%AE%89%E8%A3%85/">conda之tesserocr安装</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tesserocr</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">conda</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/28/python%E7%88%AC%E8%99%AB%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-02-28T13:16:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/28/python%E7%88%AC%E8%99%AB%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/">python爬虫问题（一）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">报错</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -403,8 +668,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
